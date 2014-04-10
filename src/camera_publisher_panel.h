@@ -17,12 +17,12 @@ static const std::string kDefaultTopic = "rviz_camera_publisher/camera_pose";
 static const std::string kButtonPublish = "Publish camera pose";
 static const std::string kButtonStop = "Stop publishing camera pose";
 
-class CameraPublisherTool : public rviz::Panel {
+class CameraPublisherPanel : public rviz::Panel {
 Q_OBJECT
 
  public:
-  CameraPublisherTool();
-  virtual ~CameraPublisherTool();
+  CameraPublisherPanel();
+  virtual ~CameraPublisherPanel();
 
  private Q_SLOTS:
   void UpdateOutputTopic();

@@ -99,13 +99,13 @@ include (${QT_USE_FILE})
 add_definitions(-DQT_NO_KEYWORDS)
 
 qt4_wrap_cpp(MOC_FILES
-  src/camera_publisher_tool.h
+  src/camera_publisher_panel.h
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++0x")
 
 set(SOURCE_FILES
-  src/camera_publisher_tool.cpp
+  src/camera_publisher_panel.cpp
   ${MOC_FILES}
 )
 

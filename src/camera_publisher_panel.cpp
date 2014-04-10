@@ -14,7 +14,7 @@
 #include <QTimer>
 #include <QVBoxLayout>
 
-#include "camera_publisher_tool.h"
+#include "camera_publisher_panel.h"
 
 namespace rviz_camera_publisher {
 
@@ -22,7 +22,7 @@ namespace rviz_camera_publisher {
  * Constructor. Starts the publisher on the default topic and creates the panel
  * layout.
  */
-CameraPublisherTool::CameraPublisherTool()
+CameraPublisherPanel::CameraPublisherPanel()
     : node_handle_("") {
   camera_pose_publisher_ = node_handle_.advertise<geometry_msgs::Pose>(
       kDefaultTopic, 5);
@@ -51,13 +51,13 @@ CameraPublisherTool::CameraPublisherTool()
 /*
  * Destructor.
  */
-CameraPublisherTool::~CameraPublisherTool() {
+CameraPublisherPanel::~CameraPublisherPanel() {
 }
 
 /*
  * Updates the publisher's topic when the user input changes.
  */
-void CameraPublisherTool::UpdateOutputTopic() {
+void CameraPublisherPanel::UpdateOutputTopic() {
   camera_pose_publisher_ = node_handle_.advertise<geometry_msgs::Pose>(
       output_topic_editor_->text().toStdString(), 5);
 }
@@ -65,7 +65,7 @@ void CameraPublisherTool::UpdateOutputTopic() {
 /*
  * Toggles the publish button when it's clicked.
  */
-void CameraPublisherTool::UpdatePublishButton() {
+void CameraPublisherPanel::UpdatePublishButton() {
   if (publish_button_->text().toStdString() == kButtonPublish) {
     publish_button_->setText(QString::fromStdString(kButtonStop));
   } else {
@@ -76,7 +76,7 @@ void CameraPublisherTool::UpdatePublishButton() {
 /*
  * Gets the camera pose and publishes it. Called 30 times per second.
  */
-void CameraPublisherTool::Update() {
+void CameraPublisherPanel::Update() {
   if (IsPublishing()) {
     geometry_msgs::Pose pose;
     GetCameraPose(&pose);
@@ -87,7 +87,7 @@ void CameraPublisherTool::Update() {
 /*
  * Returns whether to publish the camera pose or not.
  */
-bool CameraPublisherTool::IsPublishing() {
+bool CameraPublisherPanel::IsPublishing() {
   return publish_button_->text().toStdString() == kButtonStop;
 }
 
@@ -97,7 +97,7 @@ bool CameraPublisherTool::IsPublishing() {
  * Output:
  *   pose: The pose message to populate with the camera pose.
  */
-void CameraPublisherTool::GetCameraPose(geometry_msgs::Pose* pose) {
+void CameraPublisherPanel::GetCameraPose(geometry_msgs::Pose* pose) {
   auto camera = vis_manager_->getRenderPanel()->getCamera();
   auto position = camera->getPosition();
   auto orientation = camera->getOrientation();
@@ -112,4 +112,4 @@ void CameraPublisherTool::GetCameraPose(geometry_msgs::Pose* pose) {
 }
 
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS(rviz_camera_publisher::CameraPublisherTool, rviz::Panel)
+PLUGINLIB_EXPORT_CLASS(rviz_camera_publisher::CameraPublisherPanel, rviz::Panel)
