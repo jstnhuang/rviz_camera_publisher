@@ -1,0 +1,16 @@
+<library path="lib/librviz_camera_publisher">
+  <class name="rviz_camera_publisher/Camera Publisher Panel"
+         type="rviz_camera_publisher::CameraPublisherTool"
+         base_class_type="rviz::Panel">
+    <description>
+      A panel which publishes the current camera pose.
+    </description>
+  </class>
+  <class name="rviz_camera_publisher/Camera Display"
+         type="rviz_camera_publisher::CameraDisplay"
+         base_class_type="rviz::Display">
+    <description>
+      A display which places the camera according to a pose topic.
+    </description>
+  </class>
+</library>
