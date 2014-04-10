@@ -4,8 +4,7 @@ build/
 bin/
 lib/
 msg_gen/
-srv_gen/
-msg/.*Action\.msg$
+srv_gen/ msg/.*Action\.msg$
 msg/.*ActionFeedback\.msg$
 msg/.*ActionGoal\.msg$
 msg/.*ActionResult\.msg$
@@ -50,3 +49,10 @@ qtcreator-*
 
 # Catkin custom files
 CATKIN_IGNORE
+
+CMakeFiles/
+CTestTestfile.cmake
+Makefile
+catkin_generated/
+cmake_install.cmake
+*.mxx
