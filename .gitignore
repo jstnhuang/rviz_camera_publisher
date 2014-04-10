@@ -55,4 +55,4 @@ CTestTestfile.cmake
 Makefile
 catkin_generated/
 cmake_install.cmake
-*.mxx
+*.cxx
