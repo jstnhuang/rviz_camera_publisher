@@ -1,5 +1,5 @@
-#ifndef CAMERA_PUBLISHER_TOOL_H
-#define CAMERA_PUBLISHER_TOOL_H
+#ifndef CAMERA_PUBLISHER_PANEL_H
+#define CAMERA_PUBLISHER_PANEL_H
 
 #include <geometry_msgs/Pose.h>
 #include <ros/node_handle.h>
