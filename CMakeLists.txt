@@ -4,7 +4,11 @@ project(rviz_camera_publisher)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED rviz)
+find_package(catkin REQUIRED COMPONENTS
+  rviz
+  message_generation
+  view_controller_msgs
+)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -63,7 +67,7 @@ find_package(catkin REQUIRED rviz)
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   view_controller_msgs
 # )
 
 ###################################
@@ -78,7 +82,7 @@ find_package(catkin REQUIRED rviz)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES rviz_camera_publisher
-#  CATKIN_DEPENDS other_catkin_pkg
+  CATKIN_DEPENDS message_runtime
 #  DEPENDS system_lib
 )
 
@@ -100,12 +104,14 @@ add_definitions(-DQT_NO_KEYWORDS)
 
 qt4_wrap_cpp(MOC_FILES
   src/camera_publisher_panel.h
+  src/camera_display.h
 )
 
 set(CMAKE_CXX_FLAGS "-std=c++0x")
 
 set(SOURCE_FILES
   src/camera_publisher_panel.cpp
+  src/camera_display.cpp
   ${MOC_FILES}
 )
 
