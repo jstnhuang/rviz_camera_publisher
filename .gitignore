@@ -56,3 +56,4 @@ Makefile
 catkin_generated/
 cmake_install.cmake
 *.cxx
+cmake/
