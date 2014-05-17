@@ -34,7 +34,7 @@ CameraPublisherPanel::CameraPublisherPanel()
   output_topic_layout->addWidget(new QLabel("Output topic:"));
   output_topic_layout->addWidget(output_topic_editor_);
 
-  publish_button_ = new QPushButton(QString::fromStdString(kButtonPublish));
+  publish_button_ = new QPushButton(QString::fromStdString(kButtonStop));
   connect(publish_button_, SIGNAL(clicked()), this,
           SLOT(UpdatePublishButton()));
   QVBoxLayout* layout = new QVBoxLayout();
